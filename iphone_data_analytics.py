@@ -32,7 +32,7 @@ from sklearn.linear_model import LinearRegression
 
 # * * * * * DEC 11 * * * * *
 
-dec11Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_12_11_T.xlsx')
+dec11Path = ('/iphone_glass_stock_12_11_T.xlsx') #add path
 
 dec11Sheet = pd.read_excel(dec11Path)
 
@@ -54,7 +54,7 @@ d11_11PMGRN = pd.DataFrame(dec11Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * DEC 18 * * * * *
 
-dec18Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_12_18_T.xlsx')
+dec18Path = ('11/iphone_glass_stock_12_18_T.xlsx') #add path
 
 dec18Sheet = pd.read_excel(dec18Path)
 
@@ -76,7 +76,7 @@ d18_11PMGRN = pd.DataFrame(dec18Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * DEC 25 * * * * *
 
-dec25Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_12_25_T.xlsx')
+dec25Path = ('/iphone_glass_stock_12_25_T.xlsx') #add path
 
 dec25Sheet = pd.read_excel(dec25Path)
 
@@ -98,7 +98,7 @@ d25_11PMGRN = pd.DataFrame(dec25Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * JAN 01 * * * * *
 
-jan01Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_01_01_T.xlsx')
+jan01Path = ('/iphone_glass_stock_01_01_T.xlsx') #add path
 
 jan01Sheet = pd.read_excel(jan01Path)
 
@@ -120,7 +120,7 @@ j01_11PMGRN = pd.DataFrame(jan01Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * JAN 08 * * * * *
 
-jan08Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_01_08_T.xlsx')
+jan08Path = ('/iphone_glass_stock_01_08_T.xlsx') #add path
 
 jan08Sheet = pd.read_excel(jan08Path)
 
@@ -142,7 +142,7 @@ j08_11PMGRN = pd.DataFrame(jan08Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * JAN 15 * * * * *
 
-jan15Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_01_15_T.xlsx')
+jan15Path = ('/iphone_glass_stock_01_15_T.xlsx') #add path
 
 jan15Sheet = pd.read_excel(jan15Path)
 
@@ -164,7 +164,7 @@ j15_11PMGRN = pd.DataFrame(jan15Sheet, columns = ['11 PRO MAX GREEN'])
 
 # * * * * * JAN 22 * * * * *
 
-jan22Path = ('/Users/martinweiss/Downloads/iPhone Glass Files/iphone_glass_stock_01_22_T.xlsx')
+jan22Path = ('/iphone_glass_stock_01_22_T.xlsx') #add path
 
 jan22Sheet = pd.read_excel(jan22Path)
 
