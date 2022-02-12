@@ -268,19 +268,7 @@ eight_black_empty = np.delete(eight_black_empty, 5)
 
 eight_black_diff = [element * -1 for element in eight_black_empty]
 
-print("Eight Black:")
-
-print(eight_black)
-
-print("Eight Black  Diff:")
-
-print(eight_black_diff)
-
 # * * * * * Eight Gold Math * * * * *
-
-#print([1, 2, 1, 6, 0])
-
-#print("mine^ below is computer")
 
 eight_gold_empty = []
 
@@ -293,14 +281,6 @@ for i in range(len(eight_gold)):
 eight_gold_empty = np.delete(eight_gold_empty, 5)
 
 eight_gold_diff = [element * -1 for element in eight_gold_empty]
-
-print("Eight Gold:")
-
-print(eight_gold)
-
-print("Eight Gold  Diff:")
-
-print(eight_gold_diff)
 
 # * * * * * Eight Plus Black Math * * * * *
 
@@ -315,15 +295,6 @@ for i in range(len(eight_plus_black)):
 eight_plus_black_empty = np.delete(eight_plus_black_empty, 5)
 
 eight_plus_black_diff = [element * -1 for element in eight_plus_black_empty]
-
-print("Eight Plus Black:")
-
-print(eight_plus_black)
-
-print("Eight Plus Black  Diff:")
-
-print(eight_plus_black_diff)
-
 
 # * * * * * X Black * * * * *
 
@@ -353,14 +324,6 @@ xs_max_gold_empty = np.delete(xs_max_gold_empty, 5)
 
 xs_max_gold_diff = [element * -1 for element in xs_max_gold_empty]
 
-print("XS Max Gold:")
-
-print(xs_max_gold)
-
-print("XS Max Gold Diff:")
-
-print(xs_max_gold_diff)
-
 # * * * * * XR Black * * * * *
 
 xr_black_empty = []
@@ -374,14 +337,6 @@ for i in range(len(xr_black)):
 xr_black_empty = np.delete(xr_black_empty, 5)
 
 xr_black_diff = [element * -1 for element in xr_black_empty]
-
-print("XR Black:")
-
-print(xr_black)
-
-print("XR Black Diff:")
-
-print(xr_black_diff)
 
 # * * * * * 11 Pro Black * * * * *
 
@@ -397,14 +352,6 @@ eleven_pro_black_empty = np.delete(eleven_pro_black_empty, 5)
 
 eleven_pro_black_diff = [element * -1 for element in eleven_pro_black_empty]
 
-print("11 Pro Black:")
-
-print(eleven_pro_black)
-
-print("11 Pro Black Diff:")
-
-print(eleven_pro_black_diff)
-
 # * * * * * 11 Pro Max Green * * * * *
 
 eleven_pro_max_green_empty = []
@@ -419,14 +366,6 @@ eleven_pro_max_green_empty = np.delete(eleven_pro_max_green_empty, 5)
 
 eleven_pro_max_green_diff = [element * -1 for element in eleven_pro_max_green_empty]
 
-print("11 Pro Max Green:")
-
-print(eleven_pro_max_green)
-
-print("11 Pro Max Green Diff:")
-
-print(eleven_pro_max_green_diff)
-
 # * * * * * Finding the Max and Min of the Math Analysis * * * * *
 
 # * * * * * Eight Black Max/Min * * * * *
@@ -435,27 +374,11 @@ eight_black_max = max(eight_black_diff)
 
 eight_black_min = min(eight_black_diff)
 
-print("Eight Black Max:")
-
-print(eight_black_max)
-
-print("Eight Black Min:")
-
-print(eight_black_min)
-
 # * * * * * Eight Gold Max/Min * * * * *
 
 eight_gold_max = max(eight_gold_diff)
 
 eight_gold_min = min(eight_gold_diff)
-
-print("Eight Gold Max:")
-
-print(eight_gold_max)
-
-print("Eight Gold Min:")
-
-print(eight_gold_min)
 
 # * * * * * Eight Plus Black Max/Min * * * * *
 
@@ -463,55 +386,23 @@ eight_plus_black_max = max(eight_plus_black_diff)
 
 eight_plus_black_min = min(eight_plus_black_diff)
 
-print("Eight Plus Black Max:")
-
-print(eight_plus_black_max)
-
-print("Eight Plus Black Min:")
-
-print(eight_plus_black_min)
-
 # * * * * * X Black Max/Min * * * * *
 
 x_black_max = max(x_black_diff)
 
 x_black_min = min(x_black_diff)
 
-print("X Black Max:")
-
-print(x_black_max)
-
-print("X Black Min:")
-
-print(x_black_min)
-
 # * * * * * XS Max Gold Max/Min * * * * *
 
 xs_max_gold_max = max(xs_max_gold_diff)
 
 xs_max_gold_min = min(xs_max_gold_diff)
 
-print("XS Max Gold Max:")
-
-print(xs_max_gold_max)
-
-print("XS Max Gold Min:")
-
-print(xs_max_gold_min)
-
 # * * * * * XS Max Gold Max/Min * * * * *
 
 xs_max_gold_max = max(xs_max_gold_diff)
 
 xs_max_gold_min = min(xs_max_gold_diff)
-
-print("XS Max Gold Max:")
-
-print(xs_max_gold_max)
-
-print("XS Max Gold Min:")
-
-print(xs_max_gold_min)
 
 # * * * * * XR Black Max/Min * * * * *
 
@@ -519,41 +410,17 @@ xr_black_max = max(xr_black_diff)
 
 xr_black_min = min(xr_black_diff)
 
-print("XR Black Max:")
-
-print(xr_black_max)
-
-print("XR Black Min:")
-
-print(xr_black_min)
-
 # * * * * * 11 Pro Black Max/Min * * * * *
 
 eleven_pro_black_max = max(eleven_pro_black_diff)
 
 eleven_pro_black_min = min(eleven_pro_black_diff)
 
-print("11 Pro Black Max:")
-
-print(eleven_pro_black_max)
-
-print("11 Pro Black Min:")
-
-print(eleven_pro_black_min)
-
 # * * * * * 11 Pro Max Green Max/Min * * * * *
 
 eleven_pro_max_green_max = max(eleven_pro_max_green_diff)
 
 eleven_pro_max_green_min = min(eleven_pro_max_green_diff)
-
-print("11 Pro Max Green Max:")
-
-print(eleven_pro_max_green_max)
-
-print("11 Pro Max Green Min:")
-
-print(eleven_pro_max_green_min)
 
 # * * * * * Graphing Math Analysis * * * * *
 
