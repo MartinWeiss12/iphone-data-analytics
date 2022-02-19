@@ -6,15 +6,11 @@ import pandas
 
 import pandas as pd
 
-import xlrd
-
 import numpy as np
 
-import numpy as geek
+import matplotlib
 
 import matplotlib.pyplot as plt
-
-import matplotlib
 
 from matplotlib import pylab
 
@@ -22,205 +18,49 @@ from pylab import *
 
 from matplotlib.colors import colorConverter
 
-import operator
-
-from operator import itemgetter
-
 import math
 
 from sklearn.linear_model import LinearRegression
 
-# * * * * * DEC 11 * * * * *
+# * * * * * Data Import * * * * *
 
-dec11Path = ('/iphone_glass_stock_12_11_T.xlsx') #add path
+csvFile = pd.read_csv(r'/Users/martinweiss/Desktop/Python/iPhone_stock_data.csv')
 
-dec11Sheet = pd.read_excel(dec11Path)
+eight_black_list = csvFile['8black'].tolist()
 
-d11_8BLK = pd.DataFrame(dec11Sheet, columns = ['8 BLACK'])
+eight_gold_list = csvFile['8gold'].tolist()
 
-d11_8GLD = pd.DataFrame(dec11Sheet, columns = ['8 GOLD'])
+eight_plus_black_list = csvFile['8pblack'].tolist()
 
-d11_8PBLK = pd.DataFrame(dec11Sheet, columns = ['8+ BLACK'])
+x_black_list = csvFile['xblack'].tolist()
 
-d11_XBLK = pd.DataFrame(dec11Sheet, columns = ['X BLACK'])
+xs_max_gold_list = csvFile['xsmgold'].tolist()
 
-d11_XSMGLD = pd.DataFrame(dec11Sheet, columns = ['XS MAX GOLD'])
+xr_black_list = csvFile['xrblack'].tolist()
 
-d11_XRBLK = pd.DataFrame(dec11Sheet, columns = ['XR BLACK'])
+eleven_pro_black_list = csvFile['11pblack'].tolist()
 
-d11_11PBLK = pd.DataFrame(dec11Sheet, columns = ['11 PRO BLACK'])
+eleven_pro_max_green_list = csvFile['11pmgreen'].tolist()
 
-d11_11PMGRN = pd.DataFrame(dec11Sheet, columns = ['11 PRO MAX GREEN'])
+# * * * * * Setting Lists to Arrays
 
-# * * * * * DEC 18 * * * * *
+eight_black = np.array(eight_black_list)
 
-dec18Path = ('11/iphone_glass_stock_12_18_T.xlsx') #add path
+eight_gold = np.array(eight_gold_list)
 
-dec18Sheet = pd.read_excel(dec18Path)
+eight_plus_black = np.array(eight_plus_black_list)
 
-d18_8BLK = pd.DataFrame(dec18Sheet, columns = ['8 BLACK'])
+x_black = np.array(x_black_list)
 
-d18_8GLD = pd.DataFrame(dec18Sheet, columns = ['8 GOLD'])
+xs_max_gold = np.array(xs_max_gold_list)
 
-d18_8PBLK = pd.DataFrame(dec18Sheet, columns = ['8+ BLACK'])
+xr_black = np.array(xr_black_list)
 
-d18_XBLK = pd.DataFrame(dec18Sheet, columns = ['X BLACK'])
+eleven_pro_black = np.array(eleven_pro_black_list)
 
-d18_XSMGLD = pd.DataFrame(dec18Sheet, columns = ['XS MAX GOLD'])
+eleven_pro_max_green = np.array(eleven_pro_max_green_list)
 
-d18_XRBLK = pd.DataFrame(dec18Sheet, columns = ['XR BLACK'])
-
-d18_11PBLK = pd.DataFrame(dec18Sheet, columns = ['11 PRO BLACK'])
-
-d18_11PMGRN = pd.DataFrame(dec18Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * DEC 25 * * * * *
-
-dec25Path = ('/iphone_glass_stock_12_25_T.xlsx') #add path
-
-dec25Sheet = pd.read_excel(dec25Path)
-
-d25_8BLK = pd.DataFrame(dec25Sheet, columns = ['8 BLACK'])
-
-d25_8GLD = pd.DataFrame(dec25Sheet, columns = ['8 GOLD'])
-
-d25_8PBLK = pd.DataFrame(dec25Sheet, columns = ['8+ BLACK'])
-
-d25_XBLK = pd.DataFrame(dec25Sheet, columns = ['X BLACK'])
-
-d25_XSMGLD = pd.DataFrame(dec25Sheet, columns = ['XS MAX GOLD'])
-
-d25_XRBLK = pd.DataFrame(dec25Sheet, columns = ['XR BLACK'])
-
-d25_11PBLK = pd.DataFrame(dec25Sheet, columns = ['11 PRO BLACK'])
-
-d25_11PMGRN = pd.DataFrame(dec25Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * JAN 01 * * * * *
-
-jan01Path = ('/iphone_glass_stock_01_01_T.xlsx') #add path
-
-jan01Sheet = pd.read_excel(jan01Path)
-
-j01_8BLK = pd.DataFrame(jan01Sheet, columns = ['8 BLACK'])
-
-j01_8GLD = pd.DataFrame(jan01Sheet, columns = ['8 GOLD'])
-
-j01_8PBLK = pd.DataFrame(jan01Sheet, columns = ['8+ BLACK'])
-
-j01_XBLK = pd.DataFrame(jan01Sheet, columns = ['X BLACK'])
-
-j01_XSMGLD = pd.DataFrame(jan01Sheet, columns = ['XS MAX GOLD'])
-
-j01_XRBLK = pd.DataFrame(jan01Sheet, columns = ['XR BLACK'])
-
-j01_11PBLK = pd.DataFrame(jan01Sheet, columns = ['11 PRO BLACK'])
-
-j01_11PMGRN = pd.DataFrame(jan01Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * JAN 08 * * * * *
-
-jan08Path = ('/iphone_glass_stock_01_08_T.xlsx') #add path
-
-jan08Sheet = pd.read_excel(jan08Path)
-
-j08_8BLK = pd.DataFrame(jan08Sheet, columns = ['8 BLACK'])
-
-j08_8GLD = pd.DataFrame(jan08Sheet, columns = ['8 GOLD'])
-
-j08_8PBLK = pd.DataFrame(jan08Sheet, columns = ['8+ BLACK'])
-
-j08_XBLK = pd.DataFrame(jan08Sheet, columns = ['X BLACK'])
-
-j08_XSMGLD = pd.DataFrame(jan08Sheet, columns = ['XS MAX GOLD'])
-
-j08_XRBLK = pd.DataFrame(jan08Sheet, columns = ['XR BLACK'])
-
-j08_11PBLK = pd.DataFrame(jan08Sheet, columns = ['11 PRO BLACK'])
-
-j08_11PMGRN = pd.DataFrame(jan08Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * JAN 15 * * * * *
-
-jan15Path = ('/iphone_glass_stock_01_15_T.xlsx') #add path
-
-jan15Sheet = pd.read_excel(jan15Path)
-
-j15_8BLK = pd.DataFrame(jan15Sheet, columns = ['8 BLACK'])
-
-j15_8GLD = pd.DataFrame(jan15Sheet, columns = ['8 GOLD'])
-
-j15_8PBLK = pd.DataFrame(jan15Sheet, columns = ['8+ BLACK'])
-
-j15_XBLK = pd.DataFrame(jan15Sheet, columns = ['X BLACK'])
-
-j15_XSMGLD = pd.DataFrame(jan15Sheet, columns = ['XS MAX GOLD'])
-
-j15_XRBLK = pd.DataFrame(jan15Sheet, columns = ['XR BLACK'])
-
-j15_11PBLK = pd.DataFrame(jan15Sheet, columns = ['11 PRO BLACK'])
-
-j15_11PMGRN = pd.DataFrame(jan15Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * JAN 22 * * * * *
-
-jan22Path = ('/iphone_glass_stock_01_22_T.xlsx') #add path
-
-jan22Sheet = pd.read_excel(jan22Path)
-
-j22_8BLK = pd.DataFrame(jan22Sheet, columns = ['8 BLACK'])
-
-j22_8GLD = pd.DataFrame(jan22Sheet, columns = ['8 GOLD'])
-
-j22_8PBLK = pd.DataFrame(jan22Sheet, columns = ['8+ BLACK'])
-
-j22_XBLK = pd.DataFrame(jan22Sheet, columns = ['X BLACK'])
-
-j22_XSMGLD = pd.DataFrame(jan22Sheet, columns = ['XS MAX GOLD'])
-
-j22_XRBLK = pd.DataFrame(jan22Sheet, columns = ['XR BLACK'])
-
-j22_11PBLK = pd.DataFrame(jan22Sheet, columns = ['11 PRO BLACK'])
-
-j22_11PMGRN = pd.DataFrame(jan22Sheet, columns = ['11 PRO MAX GREEN'])
-
-# * * * * * Setting Data to Arrays * * * * *
-
-eight_black = [d11_8BLK, d18_8BLK, d25_8BLK, j01_8BLK, j08_8BLK, j15_8BLK, j22_8BLK]
-
-eight_gold = [d11_8GLD, d18_8GLD, d25_8GLD, j01_8GLD, j08_8GLD, j15_8GLD, j22_8GLD]
-
-eight_plus_black = [d11_8PBLK, d18_8PBLK, d25_8PBLK, j01_8PBLK, j08_8PBLK, j15_8PBLK, j22_8PBLK]
-
-x_black = [d11_XBLK, d18_XBLK, d25_XBLK, j01_XBLK, j08_XBLK, j15_XBLK, j22_XBLK]
-
-xs_max_gold = [d11_XSMGLD, d18_XSMGLD, d25_XSMGLD, j01_XSMGLD, j08_XSMGLD, j15_XSMGLD, j22_XSMGLD]
-
-xr_black = [d11_XRBLK, d18_XRBLK, d25_XRBLK, j01_XRBLK, j08_XRBLK, j15_XRBLK, j22_XRBLK]
-
-eleven_pro_black = [d11_11PBLK, d18_11PBLK, d25_11PBLK, j01_11PBLK, j08_11PBLK, j15_11PBLK, j22_11PBLK]
-
-eleven_pro_max_green = [d11_11PMGRN, d18_11PMGRN, d25_11PMGRN, j01_11PMGRN, j08_11PMGRN, j15_11PMGRN, j22_11PMGRN]
-
-weeks = [0, 1, 2, 3, 4, 5]
-
-# * * * * * Striping Useless Data from Arrays * * * * *
-
-eight_black = np.delete(eight_black, 0)
-
-eight_gold = np.delete(eight_gold, 0)
-
-eight_plus_black = np.delete(eight_plus_black, 0)
-
-x_black = np.delete(x_black, 0)
-
-xs_max_gold = np.delete(xs_max_gold, 0)
-
-xr_black = np.delete(xr_black, 0)
-
-eleven_pro_black = np.delete(eleven_pro_black, 0)
-
-eleven_pro_max_green = np.delete(eleven_pro_max_green, 0)
+weeks = [0, 1, 2, 3, 4, 5, 6]
 
 # * * * * * Graphing * * * * *
 
@@ -430,8 +270,6 @@ eight_black_index_array = np.array(eight_black)
 
 eight_black_max_index = np.where(eight_black_index_array == eight_black_max)
 
-print(eight_black_max_index)
-
 plot(eight_black_max_index, eight_black_max, 'bo') 
 
 # * * * * * 8 Gold * * * * *
@@ -440,9 +278,7 @@ eight_gold_index_array = np.array(eight_gold)
 
 eight_gold_max_index = np.where(eight_gold_index_array == eight_gold_max)
 
-print(eight_gold_max_index)
-
-#plot(eight_gold_max_index, eight_gold_max, 'bo') 
+plot(eight_gold_max_index, eight_gold_max, 'bo') 
 
 # * * * * * 8 Plus Black * * * * *
 
@@ -450,17 +286,13 @@ eight_plus_black_index_array = np.array(eight_plus_black)
 
 eight_plus_black_max_index = np.where(eight_plus_black_index_array == eight_plus_black_max)
 
-print(eight_plus_black_max_index)
-
-#plot(eight_plus_black_max_index, eight_plus_black_max, 'bo') 
+plot(eight_plus_black_max_index, eight_plus_black_max, 'bo') 
 
 # * * * * * X Black * * * * *
 
 x_black_index_array = np.array(x_black)
 
 x_black_max_index = np.where(x_black_index_array == x_black_max)
-
-print(x_black_max_index)
 
 plot(x_black_max_index, x_black_max, 'bo')
 
@@ -470,10 +302,6 @@ xr_black_index_array = np.array(xr_black)
 
 xr_black_max_index = np.where(xr_black_index_array == xr_black_max)
 
-print(xr_black_max_index)
-
 plot(xr_black_max_index, xr_black_max, 'bo') 
 
 plt.show()
-
-
