@@ -24,7 +24,7 @@ from sklearn.linear_model import LinearRegression
 
 # * * * * * Data Import * * * * *
 
-csvFile = pd.read_csv(r'/Users/martinweiss/Desktop/Python/iPhone_stock_data.csv')
+csvFile = pd.read_csv(r'/CHANGE THIS') #CHANGE THIS TO YOUR PATH
 
 eight_black_list = csvFile['8black'].tolist()
 

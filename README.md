@@ -1,4 +1,4 @@
-This repository is for the data analytics program devloped by Martin Weiss for use by MaxCareSolutions, owner Max Murphy. 
-All revelent excel files with the necessary data are included. Be sure to download and correctly path all seven files. Check lines 35, 57, 101, 123, 145, and 167.
+This repository is for the data analytics program developed by Martin Weiss for use by MaxCareSolutions, owner Max Murphy. 
+The necessary csv file is in the repository. Be sure to download the csv file and change the path on line 27.
 Please email me with any questions or comments. martinweiss1255@gmail.com
 Thank you. 
