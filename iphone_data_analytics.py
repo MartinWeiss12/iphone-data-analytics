@@ -1,7 +1,3 @@
-#!/usr/bin/env python3
-
-#!/usr/bin/env python3
-
 import pandas
 
 import pandas as pd
@@ -12,7 +8,17 @@ import matplotlib
 
 import matplotlib.pyplot as plt
 
+from matplotlib import pyplot
+
 from matplotlib import pylab
+
+from numpy import sin
+
+from numpy import sqrt
+
+from numpy import arange
+
+from scipy.optimize import curve_fit
 
 from pylab import *
 
@@ -20,11 +26,12 @@ from matplotlib.colors import colorConverter
 
 import math
 
-from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
 
 # * * * * * Data Import * * * * *
 
-csvFile = pd.read_csv(r'/CHANGE THIS') #CHANGE THIS TO YOUR PATH
+csvFile = pd.read_csv(r'/Users/martinweiss/Desktop/Python/iPhone_stock_data.csv') #CHANGE THIS TO YOUR PATH
 
 eight_black_list = csvFile['8black'].tolist()
 
@@ -60,248 +67,136 @@ eleven_pro_black = np.array(eleven_pro_black_list)
 
 eleven_pro_max_green = np.array(eleven_pro_max_green_list)
 
-weeks = [0, 1, 2, 3, 4, 5, 6]
+weeks = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,31,32,33,34,35,36,37]
 
 # * * * * * Graphing * * * * *
 
-plt.plot(weeks, eight_black, label = "8 Black")
+'''
 
-plt.plot(weeks, eight_gold, label = "8 Gold")
+#pyplot.scatter(weeks, eight_black, label = "8 Black")
 
-plt.plot(weeks, eight_plus_black, label = "8 Plus Black")
+#pyplot.scatter(weeks, eight_gold)
 
-plt.plot(weeks, x_black, label = "X Black")
+#pyplot.scatter(weeks, eight_plus_black)
 
-plt.plot(weeks, xs_max_gold, label = "XS Max Gold")
+#pyplot.scatter(weeks, x_black)
 
-plt.plot(weeks, xr_black, label = "XR Black")
+#pyplot.scatter(weeks, xs_max_gold)
 
-plt.plot(weeks, eleven_pro_black, label = "11 Pro Black")
+#pyplot.scatter(weeks, xr_black)
 
-plt.plot(weeks, eleven_pro_max_green, label = "11 Pro Max Green")
+#pyplot.scatter(weeks, eleven_pro_black)
 
-plt.xlabel('Weeks From 12/11/20')
+#pyplot.scatter(weeks, eleven_pro_max_green)
+
+'''
+
+# * * * * * Eight Black Regression * * * * *
+
+eight_black_model = np.poly1d(np.polyfit(weeks, eight_black, 6))
+
+eight_black_line = np.linspace(0, 40, 1000)
+
+eight_black_r2 = str(r2_score(eight_black, eight_black_model(weeks)))
+
+print("Eight Black R^2: " + eight_black_r2)
+
+plt.plot(eight_black_line, eight_black_model(eight_black_line), label = "8 Black")
+
+# * * * * * Eight Gold Regression * * * * *
+
+eight_gold_model = np.poly1d(np.polyfit(weeks, eight_gold, 6))
+
+eight_gold_line = np.linspace(0, 40, 1000)
+
+eight_gold_r2 = str(r2_score(eight_gold, eight_gold_model(weeks)))
+
+print("Eight Gold R^2: " + eight_gold_r2)
+
+plt.plot(eight_gold_line, eight_gold_model(eight_gold_line), label = "8 Gold")
+
+# * * * * * Eight Plus Black Regression * * * * *
+
+eight_plus_black_model = np.poly1d(np.polyfit(weeks, eight_plus_black, 7))
+
+eight_plus_black_r2 = str(r2_score(eight_plus_black, eight_plus_black_model(weeks)))
+
+eight_plus_black_line = np.linspace(0, 40, 1000)
+
+print("Eight Plus Black R^2: " + eight_plus_black_r2)
+
+plt.plot(eight_plus_black_line, eight_plus_black_model(eight_plus_black_line), label = "8 Plus Black")
+
+# * * * * * X Black Regression * * * * *
+
+x_black_model = np.poly1d(np.polyfit(weeks, x_black, 6))
+
+x_black_line = np.linspace(0, 40, 1000)
+
+x_black_r2 = str(r2_score(x_black, x_black_model(weeks)))
+
+print("X Black R^2: " + x_black_r2)
+
+plt.plot(x_black_line, x_black_model(x_black_line), label = "X Black")
+
+#* * * * * XS Max Gold Regression * * * * *
+
+xs_max_gold_model = np.poly1d(np.polyfit(weeks, xs_max_gold, 6))
+
+xs_max_gold_line = np.linspace(0, 40, 1000)
+
+xs_max_gold_r2 = str(r2_score(xs_max_gold, xs_max_gold_model(weeks)))
+
+print("XS Max Gold R^2: " + xs_max_gold_r2)
+
+plt.plot(xs_max_gold_line, xs_max_gold_model(xs_max_gold_line), label = "XSM Gold")
+
+# * * * * * XR Black Regression * * * * *
+
+xr_black_model = np.poly1d(np.polyfit(weeks, xr_black, 6))
+
+xr_black_line = np.linspace(0, 40, 1000)
+
+xr_black_line_r2 = str(r2_score(xr_black, xr_black_model(weeks)))
+
+print("XR Black R^2: " + xr_black_line_r2)
+
+plt.plot(xr_black_line, xr_black_model(xr_black_line), label = "XR Black")
+
+# * * * * * 11 Pro Black Regression * * * * *
+
+eleven_pro_black_model = np.poly1d(np.polyfit(weeks, eleven_pro_black, 6))
+
+eleven_pro_black_line = np.linspace(0, 40, 1000)
+
+eleven_pro_black_r2 = str(r2_score(eleven_pro_black, eleven_pro_black_model(weeks)))
+
+print("11 Pro Black R^2: " + eleven_pro_black_r2)
+
+plt.plot(eleven_pro_black_line, eleven_pro_black_model(eleven_pro_black_line), label = "11 Pro Black")
+
+# * * * * * 11 Pro Max Green Regression * * * * *
+
+eleven_pro_max_green_model = np.poly1d(np.polyfit(weeks, eleven_pro_max_green, 6))
+
+eleven_pro_max_green_line = np.linspace(0, 40, 1000)
+
+eleven_pro_max_green_r2 = str(r2_score(eleven_pro_max_green, eleven_pro_max_green_model(weeks)))
+
+print("11 Pro Max Green R^2: " + eleven_pro_max_green_r2)
+
+plt.plot(eleven_pro_max_green_line, eleven_pro_max_green_model(eleven_pro_max_green_line), label = "11 Max Green")
+
+# * * * * * Graph Window * * * * *
+
+plt.xlabel('Weeks From 12/11/2020')
 
 plt.ylabel('Glass Qty')
 
-plt.legend(loc = 1)
+plt.legend(loc = 0)
 
 fig = pylab.gcf()
 
 fig.canvas.manager.set_window_title('iPhone Glass Stock Over Time')
-
-eight_gold_list = ndarray.tolist(eight_gold)
-
-# * * * * * * * * * * Math Analysis * * * * * * * * * *
-
-# * * * * * Eight Black Math * * * * *
-
-eight_black_empty = []
-
-for i in range(len(eight_black)):	
-	
-	math = eight_black[i - 5] - eight_black[i]
-	
-	eight_black_empty.append(math)
-	
-eight_black_empty = np.delete(eight_black_empty, 5)
-
-eight_black_diff = [element * -1 for element in eight_black_empty]
-
-# * * * * * Eight Gold Math * * * * *
-
-eight_gold_empty = []
-
-for i in range(len(eight_gold)):	
-	
-	math = eight_gold[i - 5] - eight_gold[i]
-	
-	eight_gold_empty.append(math)
-	
-eight_gold_empty = np.delete(eight_gold_empty, 5)
-
-eight_gold_diff = [element * -1 for element in eight_gold_empty]
-
-# * * * * * Eight Plus Black Math * * * * *
-
-eight_plus_black_empty = []
-
-for i in range(len(eight_plus_black)):
-	
-	math = eight_plus_black[i - 5] - eight_plus_black[i]
-	
-	eight_plus_black_empty.append(math)
-	
-eight_plus_black_empty = np.delete(eight_plus_black_empty, 5)
-
-eight_plus_black_diff = [element * -1 for element in eight_plus_black_empty]
-
-# * * * * * X Black * * * * *
-
-x_black_empty = []
-
-for i in range(len(x_black)):
-	
-	math = x_black[i - 5] - x_black[i]
-	
-	x_black_empty.append(math)
-	
-x_black_empty = np.delete(x_black_empty, 5)
-
-x_black_diff = [element * -1 for element in x_black_empty]
-
-# * * * * * XS Max Gold * * * * *
-
-xs_max_gold_empty = []
-
-for i in range(len(xs_max_gold)):
-	
-	math = xs_max_gold[i - 5] - xs_max_gold[i]
-	
-	xs_max_gold_empty.append(math)
-	
-xs_max_gold_empty = np.delete(xs_max_gold_empty, 5)
-
-xs_max_gold_diff = [element * -1 for element in xs_max_gold_empty]
-
-# * * * * * XR Black * * * * *
-
-xr_black_empty = []
-
-for i in range(len(xr_black)):
-	
-	math = xr_black[i - 5] - xr_black[i]
-	
-	xr_black_empty.append(math)
-	
-xr_black_empty = np.delete(xr_black_empty, 5)
-
-xr_black_diff = [element * -1 for element in xr_black_empty]
-
-# * * * * * 11 Pro Black * * * * *
-
-eleven_pro_black_empty = []
-
-for i in range(len(eleven_pro_black)):
-	
-	math = eleven_pro_black[i - 5] - eleven_pro_black[i]
-	
-	eleven_pro_black_empty.append(math)
-	
-eleven_pro_black_empty = np.delete(eleven_pro_black_empty, 5)
-
-eleven_pro_black_diff = [element * -1 for element in eleven_pro_black_empty]
-
-# * * * * * 11 Pro Max Green * * * * *
-
-eleven_pro_max_green_empty = []
-
-for i in range(len(eleven_pro_max_green)):
-	
-	math = eleven_pro_max_green[i - 5] - eleven_pro_max_green[i]
-	
-	eleven_pro_max_green_empty.append(math)
-	
-eleven_pro_max_green_empty = np.delete(eleven_pro_max_green_empty, 5)
-
-eleven_pro_max_green_diff = [element * -1 for element in eleven_pro_max_green_empty]
-
-# * * * * * Finding the Max and Min of the Math Analysis * * * * *
-
-# * * * * * Eight Black Max/Min * * * * *
-
-eight_black_max = max(eight_black_diff)
-
-eight_black_min = min(eight_black_diff)
-
-# * * * * * Eight Gold Max/Min * * * * *
-
-eight_gold_max = max(eight_gold_diff)
-
-eight_gold_min = min(eight_gold_diff)
-
-# * * * * * Eight Plus Black Max/Min * * * * *
-
-eight_plus_black_max = max(eight_plus_black_diff)
-
-eight_plus_black_min = min(eight_plus_black_diff)
-
-# * * * * * X Black Max/Min * * * * *
-
-x_black_max = max(x_black_diff)
-
-x_black_min = min(x_black_diff)
-
-# * * * * * XS Max Gold Max/Min * * * * *
-
-xs_max_gold_max = max(xs_max_gold_diff)
-
-xs_max_gold_min = min(xs_max_gold_diff)
-
-# * * * * * XS Max Gold Max/Min * * * * *
-
-xs_max_gold_max = max(xs_max_gold_diff)
-
-xs_max_gold_min = min(xs_max_gold_diff)
-
-# * * * * * XR Black Max/Min * * * * *
-
-xr_black_max = max(xr_black_diff)
-
-xr_black_min = min(xr_black_diff)
-
-# * * * * * 11 Pro Black Max/Min * * * * *
-
-eleven_pro_black_max = max(eleven_pro_black_diff)
-
-eleven_pro_black_min = min(eleven_pro_black_diff)
-
-# * * * * * 11 Pro Max Green Max/Min * * * * *
-
-eleven_pro_max_green_max = max(eleven_pro_max_green_diff)
-
-eleven_pro_max_green_min = min(eleven_pro_max_green_diff)
-
-# * * * * * Graphing Math Analysis * * * * *
-
-# * * * * * 8 Black * * * * *
-
-eight_black_index_array = np.array(eight_black)
-
-eight_black_max_index = np.where(eight_black_index_array == eight_black_max)
-
-plot(eight_black_max_index, eight_black_max, 'bo') 
-
-# * * * * * 8 Gold * * * * *
-
-eight_gold_index_array = np.array(eight_gold)
-
-eight_gold_max_index = np.where(eight_gold_index_array == eight_gold_max)
-
-plot(eight_gold_max_index, eight_gold_max, 'bo') 
-
-# * * * * * 8 Plus Black * * * * *
-
-eight_plus_black_index_array = np.array(eight_plus_black)
-
-eight_plus_black_max_index = np.where(eight_plus_black_index_array == eight_plus_black_max)
-
-plot(eight_plus_black_max_index, eight_plus_black_max, 'bo') 
-
-# * * * * * X Black * * * * *
-
-x_black_index_array = np.array(x_black)
-
-x_black_max_index = np.where(x_black_index_array == x_black_max)
-
-plot(x_black_max_index, x_black_max, 'bo')
-
-# * * * * * XR Black * * * * *
-
-xr_black_index_array = np.array(xr_black)
-
-xr_black_max_index = np.where(xr_black_index_array == xr_black_max)
-
-plot(xr_black_max_index, xr_black_max, 'bo') 
 
 plt.show()
