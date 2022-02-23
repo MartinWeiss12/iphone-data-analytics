@@ -28,8 +28,6 @@ import math
 
 from sklearn.metrics import r2_score
 
-from sklearn.cluster import KMeans
-
 # * * * * * Data Import * * * * *
 
 csvFile = pd.read_csv(r'/Users/martinweiss/Desktop/Python/iPhone_stock_data.csv') #CHANGE THIS TO YOUR PATH
@@ -50,7 +48,7 @@ eleven_pro_black_list = csvFile['11pblack'].tolist()
 
 eleven_pro_max_green_list = csvFile['11pmgreen'].tolist()
 
-# * * * * * Setting Lists to Arrays
+# * * * * * Setting Lists to Arrays * * * * *
 
 eight_black = np.array(eight_black_list)
 
