@@ -30,7 +30,6 @@ from sklearn.metrics import r2_score
 
 from sklearn.cluster import KMeans
 
-
 # * * * * * Data Import * * * * *
 
 csvFile = pd.read_csv(r'/Users/martinweiss/Desktop/Python/iPhone_stock_data.csv') #CHANGE THIS TO YOUR PATH
@@ -70,28 +69,6 @@ eleven_pro_black = np.array(eleven_pro_black_list)
 eleven_pro_max_green = np.array(eleven_pro_max_green_list)
 
 weeks = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,28,30,31,32,33,34,35,36,37]
-
-# * * * * * Graphing * * * * *
-
-'''
-
-#pyplot.scatter(weeks, eight_black, label = "8 Black")
-
-#pyplot.scatter(weeks, eight_gold)
-
-#pyplot.scatter(weeks, eight_plus_black)
-
-#pyplot.scatter(weeks, x_black)
-
-#pyplot.scatter(weeks, xs_max_gold)
-
-#pyplot.scatter(weeks, xr_black)
-
-#pyplot.scatter(weeks, eleven_pro_black)
-
-#pyplot.scatter(weeks, eleven_pro_max_green)
-
-'''
 
 # * * * * * Eight Black Regression * * * * *
 
