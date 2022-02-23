@@ -28,6 +28,8 @@ import math
 
 from sklearn.metrics import r2_score
 
+from sklearn.cluster import KMeans
+
 
 # * * * * * Data Import * * * * *
 
@@ -93,9 +95,9 @@ weeks = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,
 
 # * * * * * Eight Black Regression * * * * *
 
-eight_black_model = np.poly1d(np.polyfit(weeks, eight_black, 6))
+eight_black_model = np.poly1d(np.polyfit(weeks, eight_black, 16))
 
-eight_black_line = np.linspace(0, 40, 1000)
+eight_black_line = np.linspace(0, 38, 1000)
 
 eight_black_r2 = str(r2_score(eight_black, eight_black_model(weeks)))
 
@@ -105,9 +107,9 @@ plt.plot(eight_black_line, eight_black_model(eight_black_line), label = "8 Black
 
 # * * * * * Eight Gold Regression * * * * *
 
-eight_gold_model = np.poly1d(np.polyfit(weeks, eight_gold, 6))
+eight_gold_model = np.poly1d(np.polyfit(weeks, eight_gold, 15))
 
-eight_gold_line = np.linspace(0, 40, 1000)
+eight_gold_line = np.linspace(0, 38, 1000)
 
 eight_gold_r2 = str(r2_score(eight_gold, eight_gold_model(weeks)))
 
@@ -117,11 +119,11 @@ plt.plot(eight_gold_line, eight_gold_model(eight_gold_line), label = "8 Gold")
 
 # * * * * * Eight Plus Black Regression * * * * *
 
-eight_plus_black_model = np.poly1d(np.polyfit(weeks, eight_plus_black, 7))
+eight_plus_black_model = np.poly1d(np.polyfit(weeks, eight_plus_black, 8))
 
 eight_plus_black_r2 = str(r2_score(eight_plus_black, eight_plus_black_model(weeks)))
 
-eight_plus_black_line = np.linspace(0, 40, 1000)
+eight_plus_black_line = np.linspace(0, 38, 1000)
 
 print("Eight Plus Black R^2: " + eight_plus_black_r2)
 
@@ -129,9 +131,9 @@ plt.plot(eight_plus_black_line, eight_plus_black_model(eight_plus_black_line), l
 
 # * * * * * X Black Regression * * * * *
 
-x_black_model = np.poly1d(np.polyfit(weeks, x_black, 6))
+x_black_model = np.poly1d(np.polyfit(weeks, x_black, 8))
 
-x_black_line = np.linspace(0, 40, 1000)
+x_black_line = np.linspace(0, 38, 1000)
 
 x_black_r2 = str(r2_score(x_black, x_black_model(weeks)))
 
@@ -141,9 +143,9 @@ plt.plot(x_black_line, x_black_model(x_black_line), label = "X Black")
 
 #* * * * * XS Max Gold Regression * * * * *
 
-xs_max_gold_model = np.poly1d(np.polyfit(weeks, xs_max_gold, 6))
+xs_max_gold_model = np.poly1d(np.polyfit(weeks, xs_max_gold, 11))
 
-xs_max_gold_line = np.linspace(0, 40, 1000)
+xs_max_gold_line = np.linspace(0, 38, 1000)
 
 xs_max_gold_r2 = str(r2_score(xs_max_gold, xs_max_gold_model(weeks)))
 
@@ -153,9 +155,9 @@ plt.plot(xs_max_gold_line, xs_max_gold_model(xs_max_gold_line), label = "XSM Gol
 
 # * * * * * XR Black Regression * * * * *
 
-xr_black_model = np.poly1d(np.polyfit(weeks, xr_black, 6))
+xr_black_model = np.poly1d(np.polyfit(weeks, xr_black, 8))
 
-xr_black_line = np.linspace(0, 40, 1000)
+xr_black_line = np.linspace(0, 38, 1000)
 
 xr_black_line_r2 = str(r2_score(xr_black, xr_black_model(weeks)))
 
@@ -165,9 +167,9 @@ plt.plot(xr_black_line, xr_black_model(xr_black_line), label = "XR Black")
 
 # * * * * * 11 Pro Black Regression * * * * *
 
-eleven_pro_black_model = np.poly1d(np.polyfit(weeks, eleven_pro_black, 6))
+eleven_pro_black_model = np.poly1d(np.polyfit(weeks, eleven_pro_black, 14))
 
-eleven_pro_black_line = np.linspace(0, 40, 1000)
+eleven_pro_black_line = np.linspace(0, 38, 1000)
 
 eleven_pro_black_r2 = str(r2_score(eleven_pro_black, eleven_pro_black_model(weeks)))
 
@@ -177,9 +179,9 @@ plt.plot(eleven_pro_black_line, eleven_pro_black_model(eleven_pro_black_line), l
 
 # * * * * * 11 Pro Max Green Regression * * * * *
 
-eleven_pro_max_green_model = np.poly1d(np.polyfit(weeks, eleven_pro_max_green, 6))
+eleven_pro_max_green_model = np.poly1d(np.polyfit(weeks, eleven_pro_max_green, 13))
 
-eleven_pro_max_green_line = np.linspace(0, 40, 1000)
+eleven_pro_max_green_line = np.linspace(0, 38, 1000)
 
 eleven_pro_max_green_r2 = str(r2_score(eleven_pro_max_green, eleven_pro_max_green_model(weeks)))
 
